@@ -1,0 +1,149 @@
+"Vim configuration file maintained by Abhibhav Garg
+
+"--------------------------------------------------------------------
+"Index.........................................................vim0
+"1.Startup and Required........................................vim1
+"2.Vundle for Plugins..........................................vim2
+"3.Interface...................................................vim3
+"4.Mappings and Abbreviations..................................vim4
+"5.Status Line.................................................vim5
+
+
+"--------------------------------------------------------------------
+"1.Startup and Required........................................vim1
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+autocmd VimEnter * echo "\n\tNuke em till they glow\n\t\tThen shoot em in the dark\n\n\n\n\n\n\n\n\n\n\n\n"
+
+"--------------------------------------------------------------------
+"2.Vundle for Plugins..........................................vim2
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"Let Vundle manage Vundle, required
+
+Plugin 'gmarik/Vundle.vim'
+
+"Add all the plugins here
+
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ervandew/supertab'
+Plugin 'JuliaLang/julia-vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'hsitz/VimOrganizer'
+Plugin 'flazz/vim-colorschemes' 
+Plugin 'godlygeek/tabular'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'Shougo/neocomplete'
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" see :h vundle for more details or wiki for FAQ
+
+"-------------------------------------------------------------------
+"3.Interface..................................................vim3
+
+" Numbers
+set number                     " show line number
+set rnu                        " relative line numbers
+" Command Line and Menu
+set showcmd                    " show command in bottom bar
+set wildmenu                   " visual autocomplete for command menu
+set wildmode=longest:list,full
+set lazyredraw                 " redraw only when we need to
+" Searching
+set incsearch		           " incremental searching
+set nohlsearch	               " do not highlight matches
+set ignorecase                 " case insensitive matching
+set smartcase                  " smart case matching
+" Tabs
+set expandtab
+set autoindent
+set shiftwidth=2
+set softtabstop=2
+set tabstop=4
+set nowrap
+"General
+set showmatch                  " highlight matching parenthesis
+
+"-------------------------------------------------------------------
+"4.Mappings and Abbreviations.................................vim4
+
+let mapleader = ","
+
+" Easy to use command line
+nnoremap ; : 
+vnoremap ; :                        
+" Commands to properly indent the code
+nnoremap <leader>= mzgg=G`z
+inoremap <leader>= <esc>mzgg=G`za
+" NerdComment
+nmap // <leader>ci
+" Escape
+inoremap <leader>. <esc>
+" Quit without Save
+:command Q q!
+" Easy motion shortcut
+nmap <leader>/ <leader><leader>s
+imap <leader>/ <esc><leader><leader>s
+" Operator-Pending Mappings
+:onoremap p i(
+:onoremap in( :<c-u>normal! f(vi(<cr>
+:onoremap il( :<c-u>normal! F(vi(<cr>
+:onoremap an( :<c-u>normal! f(va(<cr>
+:onoremap al( :<c-u>normal! F(va(<cr>
+" Using Multiple registers
+"  black hole register
+nnoremap <leader>b "_ 
+nnoremap <leader>n "n
+nnoremap <leader>m "m
+" TODO add switch mode for single commands
+
+"-------------------------------------------------------------------
+"5.Status Line................................................vim5
+
+set laststatus=2          " Always show status line
+set statusline=%f
+set statusline+=\ -
+set statusline+=\ %y
+set statusline+=\ %m
+set statusline+=%=
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
+
+" Syntax and Coloring
+set t_Co=256
+colorscheme harlequin
+syntax enable		" enable syntax processing
+" UI Config
+filetype indent on             " load filetype specific indent files
+
+
+
+" Octave syntax
+augroup filetypedetect
+    au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+augroup END 
+
+" Use keywords from Octave syntax language file for autocomplete
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype octave
+                \ if &omnifunc == "" |
+                \ setlocal omnifunc=syntaxcomplete#Complete |
+                \ endif
+endif 
+
+" for VimOrganizer
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au BufEnter *.org            call org#SetOrgFileType()
