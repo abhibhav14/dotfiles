@@ -16,4 +16,14 @@ Repository to store my dotfiles
       <li>Launch vim and run <pre>:PluginInstall</pre></li>
     </ol>
   </li>
+  <li>
+    <b>i3</b>
+    <ol>
+      <li>
+        Create a symlink to the i3 config and i3 blocks config as shown for Vim
+      </li>
+      <li>
+        Create symlinks from the blocks scripts, or copy the contents to your i3 config golder
+      </li>
+    </ol>
 </ul>
