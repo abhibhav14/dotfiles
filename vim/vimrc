@@ -14,7 +14,7 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-autocmd VimEnter * echo "\n\tNuke em till they glow\n\t\tThen shoot em in the dark\n\n\n\n\n\n\n\n\n\n\n\n"
+autocmd VimEnter * echo "\n\tWhere there is vim\n\t There is a way\t\n\n\n\n\n\n\n\n\n\n\n\n"
 
 "--------------------------------------------------------------------
 "2.Vundle for Plugins..........................................vim2
@@ -80,21 +80,13 @@ set showmatch                  " highlight matching parenthesis
 
 let mapleader = ","
 
-" Easy to use command line
-nnoremap ; : 
-vnoremap ; :                        
 " Commands to properly indent the code
 nnoremap <leader>= mzgg=G`z
 inoremap <leader>= <esc>mzgg=G`za
-" NerdComment
-nmap // <leader>ci
 " Escape
 inoremap <leader>. <esc>
 " Quit without Save
 :command Q q!
-" Easy motion shortcut
-nmap <leader>/ <leader><leader>s
-imap <leader>/ <esc><leader><leader>s
 " Operator-Pending Mappings
 :onoremap p i(
 :onoremap in( :<c-u>normal! f(vi(<cr>
