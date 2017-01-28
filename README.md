@@ -23,7 +23,7 @@ Repository to store my dotfiles
         Create a symlink to the i3 config and i3 blocks config as shown for Vim
       </li>
       <li>
-        Create symlinks from the blocks scripts, or copy the contents to your i3 config golder
+        Create symlinks from the blocks scripts, or copy the contents to your i3 config folder
       </li>
     </ol>
 </ul>
