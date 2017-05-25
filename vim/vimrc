@@ -29,8 +29,8 @@ Plugin 'gmarik/Vundle.vim'
 "Add all the plugins here
 
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
 Plugin 'JuliaLang/julia-vim'
+Plugin 'ervandew/supertab'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'hsitz/VimOrganizer'
 Plugin 'flazz/vim-colorschemes' 
@@ -38,7 +38,7 @@ Plugin 'godlygeek/tabular'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'Shougo/neocomplete'
 "Plugin 'davidhalter/jedi-vim'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -140,3 +140,5 @@ endif
 " for VimOrganizer
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
+
+

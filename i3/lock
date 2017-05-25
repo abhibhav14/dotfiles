@@ -1,0 +1,9 @@
+#!/bin/bash
+v=$(xrandr --query | grep current | awk 'BEGIN{ FS=" "}{print $8}' | head -c4)
+m=$((3999-v))
+s=$(( $RANDOM % $m ));
+b=$(xrandr --query | grep current | awk 'BEGIN{ FS=" "}{print $10}' | head -c4)
+n=$((3999-b))
+f=$(( $RANDOM % $n ));
+convert ~/Pictures/Wallpapers/reddit.png -crop "${v}x${b}+${s}+${f}" /tmp/lock.png
+i3lock -i /tmp/lock.png
