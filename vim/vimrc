@@ -35,10 +35,11 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'hsitz/VimOrganizer'
 Plugin 'flazz/vim-colorschemes' 
 Plugin 'godlygeek/tabular'
+Plugin 'lervag/vimtex'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'Shougo/neocomplete'
 "Plugin 'davidhalter/jedi-vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -141,4 +142,8 @@ endif
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
 
-
+" Latex folding
+let g:vimtex_fold_enabled=1
+" To prevent scanning included files, since this forces a search through
+" latexs stylefiles
+set complete=.,w,b,u,]
