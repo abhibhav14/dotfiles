@@ -14,7 +14,6 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-autocmd VimEnter * echo "\n\tWhere there is vim\n\t There is a way\t\n\n\n\n\n\n\n\n\n\n\n\n"
 
 "--------------------------------------------------------------------
 "2.Vundle for Plugins..........................................vim2
@@ -36,7 +35,7 @@ Plugin 'hsitz/VimOrganizer'
 Plugin 'flazz/vim-colorschemes' 
 Plugin 'godlygeek/tabular'
 Plugin 'lervag/vimtex'
-"Plugin 'SirVer/ultisnips'
+Plugin 'SirVer/ultisnips'
 "Plugin 'Shougo/neocomplete'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'Valloric/YouCompleteMe'
@@ -144,6 +143,12 @@ au BufEnter *.org            call org#SetOrgFileType()
 
 " Latex folding
 let g:vimtex_fold_enabled=1
+let g:vimtex_view_method = 'skim'
 " To prevent scanning included files, since this forces a search through
 " latexs stylefiles
 set complete=.,w,b,u,]
+
+
+let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = 'jk'    " use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
